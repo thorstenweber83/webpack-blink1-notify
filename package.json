@@ -1,0 +1,15 @@
+{
+  "name": "webpack-blink1-notify",
+  "version": "0.0.1",
+  "description": "signal webpack build status with blink1",
+  "main": "WebpackBlink1Notify.js",
+  "scripts": {
+    "test": "echo 'no tests yet :/'"
+  },
+  "author": "",
+  "license": "ISC",
+  "private": true,
+  "dependencies": {
+    "node-blink1": "^0.2.2"
+  }
+}
