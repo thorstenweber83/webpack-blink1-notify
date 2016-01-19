@@ -27,6 +27,13 @@ Configuration
 
 none yet...
 
+TODO
+----
+
+-	add error handling to blink1 calls to prevent webpack from crashing when blink1 is disconnected
+-	make plugin configurable
+-	publish npm package
+
 ##### helpful links for blink1
 
 -	https://blink1.thingm.com/blink1-tool/  
