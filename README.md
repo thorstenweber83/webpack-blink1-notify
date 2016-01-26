@@ -31,6 +31,7 @@ TODO
 ----
 
 -	add error handling to blink1 calls to prevent webpack from crashing when blink1 is disconnected
+-   also only call pulse functions on exit when blink1 was found
 -	make plugin configurable
 -	publish npm package
 

@@ -48,11 +48,13 @@ function startPulse( ms, r, g, b ){
 
 process.on('beforeExit', function(){
   //console.log('beforeExit');
+  clearInterval(ledInterval);
   blink1.fadeToRGB(0, 0, 0, 0);
 });
 
 process.on('exit', function(){
   // console.log('beforeExit');
+  clearInterval(ledInterval);
   blink1.fadeToRGB(0, 0, 0, 0);
 });
 
