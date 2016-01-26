@@ -18,20 +18,29 @@ function init(){
 }
 
 function pulse(ms, r, g, b){
-  blink1.fadeToRGB(ms, r, g, b, () => {
-    // console.log('now fading out!');
-
-    setTimeout(() => {
-      blink1.fadeToRGB(
-        ms,
-        darkenChannel(r),
-        darkenChannel(g),
-        darkenChannel(b),
-        () => {
-        // console.log('finished fading!');
-      });
-    }, 0);
-  });
+  try{
+    blink1.fadeToRGB(ms, r, g, b, ( ) => {
+      // console.log('now fading out!');
+      setTimeout(() => {
+        try{
+          blink1.fadeToRGB(
+            ms,
+            darkenChannel(r),
+            darkenChannel(g),
+            darkenChannel(b),
+            () => {
+            // console.log('finished fading!');
+          });
+        }
+        catch( error ){
+          // console.log(error);
+        }
+      }, 0);
+    });
+  }
+  catch( error ){
+    // console.log(error);
+  }
 }
 
 function darkenChannel( c ){
@@ -47,15 +56,19 @@ function startPulse( ms, r, g, b ){
 }
 
 process.on('beforeExit', function(){
-  //console.log('beforeExit');
-  clearInterval(ledInterval);
-  blink1.fadeToRGB(0, 0, 0, 0);
+  console.log('beforeExit');
+  if(ledInterval){
+    clearInterval(ledInterval);
+    blink1.fadeToRGB(0, 0, 0, 0);
+  }
 });
 
 process.on('exit', function(){
-  // console.log('beforeExit');
-  clearInterval(ledInterval);
-  blink1.fadeToRGB(0, 0, 0, 0);
+  console.log('exit');
+  if(ledInterval){
+    clearInterval(ledInterval);
+    blink1.fadeToRGB(0, 0, 0, 0);
+  }
 });
 
 module.exports = {
