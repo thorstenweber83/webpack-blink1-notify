@@ -4,7 +4,6 @@ let pulse = require('./pulse.js');
 let startPulse = pulse.startPulse;
 let failed = false;
 let initSuccess = false;
-let watch = true;
 
 function WebpackBlink1Notify(options) {
   initSuccess = pulse.init();
@@ -31,10 +30,6 @@ WebpackBlink1Notify.prototype.apply = function(compiler) {
   if(!initSuccess){
     return;
   }
-
-  compiler.plugin('run', function(){
-    watch = false;
-  });
 
   compiler.plugin('compile', working);
 

@@ -53,18 +53,11 @@ function startPulse( ms, r, g, b ){
   ledInterval = setInterval(function(){
   	pulse(ms, r, g, b);
   }, ms * 2);
+  ledInterval.unref();
 }
 
 process.on('beforeExit', function(){
-  console.log('beforeExit');
-  if(ledInterval){
-    clearInterval(ledInterval);
-    blink1.fadeToRGB(0, 0, 0, 0);
-  }
-});
-
-process.on('exit', function(){
-  console.log('exit');
+  // console.log('beforeExit');
   if(ledInterval){
     clearInterval(ledInterval);
     blink1.fadeToRGB(0, 0, 0, 0);
