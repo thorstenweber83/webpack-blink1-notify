@@ -1,11 +1,12 @@
 "use strict"
 
+var hex2rgb = require('hex-to-rgb');
 var Blink1 = require('node-blink1');
 // console.log(Blink1.devices());
 
 
-let blink1;
-let ledInterval = null;
+var blink1;
+var ledInterval = null;
 
 function init(){
   try{
@@ -17,18 +18,25 @@ function init(){
   return true;
 }
 
-function pulse(ms, r, g, b){
+function pulse(ms, color){
+	var r, g, b;
+	var rgbColor = hex2rgb( color );
+
+	r = rgbColor[0];
+	g = rgbColor[1];
+	b = rgbColor[2];
+
   try{
-    blink1.fadeToRGB(ms, r, g, b, ( ) => {
+    blink1.fadeToRGB(ms, r, g, b, function() {
       // console.log('now fading out!');
-      setTimeout(() => {
+      setTimeout( function() {
         try{
           blink1.fadeToRGB(
             ms,
             darkenChannel(r),
             darkenChannel(g),
             darkenChannel(b),
-            () => {
+            function() {
             // console.log('finished fading!');
           });
         }

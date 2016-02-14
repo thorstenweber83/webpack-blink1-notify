@@ -5,9 +5,10 @@ Get notified about the status of your webpack build during development.
 
 Installation
 ------------
+```
+npm install webpack-blink1-notify --save-dev
+```
 
-TODO: create npm package for easy installation!  
-Till then, just clone this repo.
 
 Usage
 -----
@@ -24,17 +25,28 @@ plugins: [
 
 Configuration
 -------------
-
-none yet...
+you can customize the LED Colors like this:
+```
+var WebpackBlink1Notify = require('path-to/webpack-blink1-notify');
+[...]
+plugins: [
+  new webpack-blink1-notify({
+		colors: {
+			working: '#ffffff',
+			fail: '#ff0000',
+			ready: '#0000ff',
+		},
+	}),
+]
+```
 
 TODO
 ----
--	make plugin configurable
 -	publish npm package
 
 ##### helpful links for blink1
 
--	https://blink1.thingm.com/blink1-tool/  
--	https://github.com/todbot/blink1/blob/master/linux/51-blink1.rules  
--	https://github.com/todbot/blink1  
+-	https://blink1.thingm.com/blink1-tool/
+-	https://github.com/todbot/blink1/blob/master/linux/51-blink1.rules
+-	https://github.com/todbot/blink1
 -	https://wiki.raumzeitlabor.de/wiki/RZLblink

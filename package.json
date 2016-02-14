@@ -1,15 +1,30 @@
 {
   "name": "webpack-blink1-notify",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "signal webpack build status with blink1",
   "main": "WebpackBlink1Notify.js",
   "scripts": {
     "test": "echo 'no tests yet :/'"
   },
-  "author": "",
-  "license": "ISC",
-  "private": true,
+  "author": "Thorsten Weber",
+  "license": "MIT",
   "dependencies": {
+    "hex-to-rgb": "^1.0.1",
+    "lodash.merge": "^4.1.0",
     "node-blink1": "^0.2.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thorstenweber83/webpack-blink1-notify.git"
+  },
+  "keywords": [
+    "webpack",
+    "blink1",
+    "notify"
+  ],
+  "bugs": {
+    "url": "https://github.com/thorstenweber83/webpack-blink1-notify/issues"
+  },
+  "homepage": "https://github.com/thorstenweber83/webpack-blink1-notify#readme"
 }
